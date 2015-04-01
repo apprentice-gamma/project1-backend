@@ -6,7 +6,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/project1database');
+mongoose.connect("mongodb://heroku_app35449457:ovvi9mjr2p5a22tl6645eifhri@ds059821.mongolab.com:59821/heroku_app35449457");
 
 var Bear     = require('./app/models/bear');
 
