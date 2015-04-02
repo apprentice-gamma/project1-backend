@@ -1,6 +1,7 @@
 var mongoose     = require('mongoose');
+var Schema       = mongoose.Schema;
 
-var BookmarkSchema = mongoose.Schema({
+var BookmarkSchema = new Schema({
   url: String,
   description: String,
   title: String
