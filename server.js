@@ -130,7 +130,7 @@ router.route('/users/:user_id/bookmarks')
             bookmark.title = req.body.title;
             user.bookmarks.push(bookmark);
 
-            user.bookmarks.save(function(err) {
+            user.save(function(err) {
                 if (err)
                     res.send(err);
 
