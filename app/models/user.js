@@ -5,7 +5,7 @@ var Bookmark     = require("Bookmark")
 var UserSchema   = new Schema({
     firstname: String,
     lastname: String,
-    email: String
+    email: String,
     bookmarks: [Bookmark.schema]
 });
 

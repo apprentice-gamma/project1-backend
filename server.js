@@ -9,6 +9,7 @@ var mongoose   = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI);
 
 var User     = require('./app/models/user');
+var Bookmark = require('./app/models/bookmark');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
