@@ -8,8 +8,9 @@ var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI);
 
-var User     = require('./app/models/user');
-var Bookmark = require('./app/models/bookmark');
+var User     = require('./app/models/user.js');
+var Bookmark = require('./app/models/bookmark.js');
+var Shoutout = require('./app/models/shoutout.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -139,6 +140,8 @@ router.route('/users/:user_id/bookmarks')
 
     .get(function(req, res) {
         User.findById(req.params.user_id, function(err, user) {
+            if (err)
+                res.send(err);
             res.json(user.bookmarks);
         });
     });
