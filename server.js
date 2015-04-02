@@ -75,7 +75,7 @@ router.route('/users')
 
         var user = new User();      // create a new instance of the Bear model
         user.name = req.body.name;  // set the bears name (comes from the request)
-
+        user.email = req.body.email;
 
         // save the bear and check for errors
         user.save(function(err) {
