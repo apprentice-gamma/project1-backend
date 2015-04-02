@@ -9,6 +9,7 @@ var mongoose   = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI);
 
 var Bear     = require('./app/models/bear');
+var User     = require('./app/models/user');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -62,6 +63,37 @@ router.route('/bears')
                 res.send(err);
 
             res.json(bears);
+        });
+    });
+
+// routes that end in /users
+//---------------------------------------------------
+router.route('/users')
+
+    // create a bear (accessed at POST http://localhost:8080/api/bears)
+    .post(function(req, res) {
+
+        var user = new User();      // create a new instance of the Bear model
+        user.name = req.body.name;  // set the bears name (comes from the request)
+
+
+        // save the bear and check for errors
+        user.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'User created!' });
+        });
+
+    })
+
+    // get all the bears (accessed at GET http://localhost:8080/api/bears)
+    .get(function(req, res) {
+        User.find(function(err, users) {
+            if (err)
+                res.send(err);
+
+            res.json(users);
         });
     });
 
