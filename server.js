@@ -46,6 +46,7 @@ router.route('/users')
         user.firstname = req.body.firstname;  // set the users name (comes from the request)
         user.lastname = req.body.lastname;  // set the users name (comes from the request)
         user.email = req.body.email;
+        user.bookmarks = req.body.bookmarks;
 
         // save the user and check for errors
         user.save(function(err) {
@@ -92,6 +93,7 @@ router.route('/users/:user_id')
             user.firstname = req.body.firstname;  // update the users info
             user.lastname = req.body.lastname;
             user.email = req.body.email;
+            user.bookmarks = req.body.bookmarks;
 
             // save the user
             user.save(function(err) {
