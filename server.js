@@ -120,23 +120,25 @@ router.route('/users/:user_id')
     // });
 
 router.route('/users/:user_id/bookmarks')
-    // .post(function(req, res) {
+    .post(function(req, res) {
 
-    //     var user = new User();      // create a new instance of the User model
-    //     user.firstname = req.body.firstname;  // set the users name (comes from the request)
-    //     user.lastname = req.body.lastname;  // set the users name (comes from the request)
-    //     user.email = req.body.email;
-    //     // user.bookmarks = req.body.bookmarks;
+        User.findById(req.params.user_id, function(err, user) {
 
-    //     // save the user and check for errors
-    //     user.save(function(err) {
-    //         if (err)
-    //             res.send(err);
+            var bookmark = new Bookmark();
+            bookmark.url = req.body.url;
+            bookmark.description = req.body.description;
+            bookmark.title = req.body.title;
+            user.bookmarks.push(bookmark);
 
-    //         res.json({ message: 'User created!' });
-    //     });
+            user.bookmarks.save(function(err) {
+                if (err)
+                    res.send(err);
 
-    // })
+                res.json({ message: 'Bookmark created!' });
+            });
+
+        });
+    })
 
     .get(function(req, res) {
         User.findById(req.params.user_id, function(err, user) {
