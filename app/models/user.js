@@ -1,6 +1,6 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
-var Bookmark     = mongoose.Bookmark
+var Bookmark     = require('bookmark.js')
 
 var UserSchema   = new Schema({
     firstname: String,
@@ -9,7 +9,7 @@ var UserSchema   = new Schema({
     // bookmarks: [new Schema(url: String,
     //                        description: String,
     //                        title: String)]
-    bookmarks: [Bookmark.schema]
+    // bookmarks: [Bookmark.schema]
 });
 
 module.exports = mongoose.model('User', UserSchema);
