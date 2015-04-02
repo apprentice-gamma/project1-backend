@@ -1,6 +1,6 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
-var Bookmark     = require('bookmark.js')
+var Bookmark     = require('./bookmark.js')
 
 var UserSchema   = new Schema({
     firstname: String,
