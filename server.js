@@ -9,7 +9,7 @@ var mongoose   = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI);
 
 var User     = require('./app/models/user');
-var Bookmark = require('./app/models/bookmarks');
+var Bookmark = require('./app/models/bookmark');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -46,7 +46,7 @@ router.route('/users')
         user.firstname = req.body.firstname;  // set the users name (comes from the request)
         user.lastname = req.body.lastname;  // set the users name (comes from the request)
         user.email = req.body.email;
-        user.bookmarks = req.body.bookmarks;
+        // user.bookmarks = req.body.bookmarks;
 
         // save the user and check for errors
         user.save(function(err) {
@@ -93,7 +93,7 @@ router.route('/users/:user_id')
             user.firstname = req.body.firstname;  // update the users info
             user.lastname = req.body.lastname;
             user.email = req.body.email;
-            user.bookmarks = req.body.bookmarks;
+            // user.bookmarks = req.body.bookmarks;
 
             // save the user
             user.save(function(err) {
