@@ -141,7 +141,6 @@ router.route('/users/:user_id/bookmarks')
         User.findById(req.params.user_id, function(err, user) {
             res.json(user.bookmarks);
         });
-        alert("YOOOOOOOOOOO");
     });
 
 
