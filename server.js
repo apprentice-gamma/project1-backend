@@ -70,7 +70,7 @@ router.route('/bears')
 //---------------------------------------------------
 router.route('/users')
 
-    // create a bear (accessed at POST http://localhost:8080/api/bears)
+    // create a user (accessed at POST http://localhost:8080/api/users)
     .post(function(req, res) {
 
         var user = new User();      // create a new instance of the Bear model
@@ -88,7 +88,7 @@ router.route('/users')
 
     })
 
-    // get all the bears (accessed at GET http://localhost:8080/api/bears)
+    // get all the users (accessed at GET http://localhost:8080/api/users)
     .get(function(req, res) {
         User.find(function(err, users) {
             if (err)
@@ -97,6 +97,43 @@ router.route('/users')
             res.json(users);
         });
     });
+
+// on routes that end in /users/:user_id
+// ----------------------------------------------------
+router.route('/users/:user_id')
+
+    // get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
+    .get(function(req, res) {
+        User.findById(req.params.user_id, function(err, user) {
+            if (err)
+                res.send(err);
+            res.json(user);
+        });
+    })
+
+    // update the user with this id (accessed at PUT http://localhost:8080/api/users/:user_id)
+    .put(function(req, res) {
+
+        // use our bear model to find the bear we want
+        User.findById(req.params.user_id, function(err, user) {
+
+            if (err)
+                res.send(err);
+
+            user.firstname = req.body.firstname;  // update the users info
+            user.lastname = req.body.lastname;
+            user.email = req.body.email;
+
+            // save the user
+            user.save(function(err) {
+                if (err)
+                    res.send(err);
+
+                res.json({ message: 'User updated!' });
+            });
+
+        });
+    })
 
 // on routes that end in /bears/:bear_id
 // ----------------------------------------------------
