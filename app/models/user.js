@@ -9,7 +9,7 @@ var UserSchema   = new Schema({
     // bookmarks: [new Schema(url: String,
     //                        description: String,
     //                        title: String)]
-    // bookmarks: [Bookmark.schema]
+    bookmarks: [Bookmark.schema]
 });
 
 module.exports = mongoose.model('User', UserSchema);
