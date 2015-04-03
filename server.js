@@ -42,37 +42,7 @@ router.get('/', function(req, res) {
 
 // routes that end in /users
 //---------------------------------------------------
-router.route('/users')
 
-// create a user (accessed at POST http://localhost:8080/api/users)
-.post(function(req, res) {
-
-  var user = new User(); // create a new instance of the User model
-  user.firstname = req.body.firstname; // set the users first name (comes from the request)
-  user.lastname = req.body.lastname;
-  user.email = req.body.email;
-
-  // save the user and check for errors
-  user.save(function(err) {
-    if (err)
-      res.send(err);
-
-    res.json({
-      message: 'User created!'
-    });
-  });
-
-})
-
-// get all the users (accessed at GET http://localhost:8080/api/users)
-.get(function(req, res) {
-  User.find(function(err, users) {
-    if (err)
-      res.send(err);
-
-    res.json(users);
-  });
-});
 
 // on routes that end in /users/:user_id
 // ----------------------------------------------------
@@ -112,51 +82,36 @@ router.route('/users/:user_id')
   });
 })
 
-// delete the bear with this id (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
-// .delete(function(req, res) {
-//     Bear.remove({
-//         _id: req.params.bear_id
-//     }, function(err, bear) {
-//         if (err)
-//             res.send(err);
-
-//         res.json({ message: 'Successfully deleted' });
-//     });
-// });
-
-// router.route('/users/:user_id/bookmarks')
-//   .post(function(req, res) {
-
-//     User.findById(req.params.user_id, function(err, user) {
-
-//       var bookmark = new Bookmark();
-//       bookmark.url = req.body.url;
-//       bookmark.description = req.body.description;
-//       bookmark.title = req.body.title;
-//       user.bookmarks.push(bookmark);
-
-//       user.save(function(err) {
-//         if (err)
-//           res.send(err);
-
-//         res.json({
-//           message: 'Bookmark created!'
-//         });
-//       });
-
-//     });
-//   })
-
-// .get(function(req, res) {
-//   User.findById(req.params.user_id, function(err, user) {
-//     if (err)
-//       res.send(err);
-//     res.json(user.bookmarks);
-//   });
-// });
-
 // SHOUTOUTS
+router.route('/users')
 
+// create a user (accessed at POST http://localhost:8080/api/users)
+.post(function(req, res) {
+
+  var user = new User(); // create a new instance of the User model
+  user.name = req.body.name; // set the users first name (comes from the request)
+
+  // save the user and check for errors
+  user.save(function(err) {
+    if (err)
+      res.send(err);
+
+    res.json({
+      message: 'User created!'
+    });
+  });
+
+})
+
+// get all the users (accessed at GET http://localhost:8080/api/users)
+.get(function(req, res) {
+  User.find(function(err, users) {
+    if (err)
+      res.send(err);
+
+    res.json(users);
+  });
+});
 
 // END SHOUTOUTS
 

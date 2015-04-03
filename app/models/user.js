@@ -3,9 +3,7 @@ var Schema       = mongoose.Schema;
 var Shoutout     = require('./shoutout.js');
 
 var UserSchema   = new Schema({
-  firstname: String,
-  lastname: String,
-  email: String,
+  name: String,
   shoutouts: [Shoutout.schema]
 });
 
