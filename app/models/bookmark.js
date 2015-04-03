@@ -4,7 +4,8 @@ var Schema       = mongoose.Schema;
 var BookmarkSchema = new Schema({
   url: String,
   description: String,
-  title: String
+  title: String,
+  comments: [String]
 });
 
 module.exports = mongoose.model('Bookmark', BookmarkSchema);
