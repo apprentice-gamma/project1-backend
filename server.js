@@ -111,7 +111,7 @@ router.route('/users/:user_id')
 //   });
 // })
 
-router.route('/users/:user_id/shoutout')
+router.route('/users/:user_id/shoutouts')
 
 // get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
 .post(function(req, res) {
