@@ -161,12 +161,11 @@ router.route('/bookmarks')
 
 .post(function(req, res) {
 
-  var bookmark = new Bookmark(); // create a new instance of bookmark
+  var bookmark = new Bookmark();
   bookmark.url = req.body.url;
   bookmark.title = req.body.title;
   bookmark.description = req.body.description;
 
-  // save the user and check for errors
   bookmark.save(function(err) {
     if (err)
       res.send(err);
@@ -178,7 +177,6 @@ router.route('/bookmarks')
 
 })
 
-// get all the users (accessed at GET http://localhost:8080/api/bookmarks)
 .get(function(req, res) {
   Bookmark.find(function(err, bookmarks) {
     if (err)
@@ -188,6 +186,39 @@ router.route('/bookmarks')
   });
 });
 
+router.route('/bookmarks/:bookmark_id')
+.get(function(req, res) {
+  Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
+    if (err)
+      res.send(err);
+    res.json(bookmark);
+  });
+})
+
+
+.put(function(req, res) {
+
+  Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
+
+    if (err)
+      res.send(err);
+
+    bookmark.url = req.body.url;
+    bookmark.title = req.body.title;
+    bookmark.description = req.body.description;
+
+
+    bookmark.save(function(err) {
+      if (err)
+        res.send(err);
+
+      res.json({
+        message: 'Bookmark updated!'
+      });
+    });
+
+  });
+})
 
 // more routes for our API will happen here
 
