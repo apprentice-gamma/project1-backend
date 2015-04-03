@@ -124,11 +124,6 @@ router.route('/users/:user_id')
 //     });
 // });
 
-router.route('/bookmarks')
-.get(function(req, res) {
-  res.json(User.bookmarks);
-});
-
 router.route('/users/:user_id/bookmarks')
   .post(function(req, res) {
 
