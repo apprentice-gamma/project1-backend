@@ -156,6 +156,39 @@ router.route('/users/:user_id/bookmarks')
 });
 
 
+// BOOKMARKS --------------------------
+router.route('/bookmarks')
+
+.post(function(req, res) {
+
+  var bookmark = new Bookmark(); // create a new instance of bookmark
+  bookmark.url = req.body.url;
+  bookmark.title = req.body.title;
+  bookmark.description = req.body.description;
+
+  // save the user and check for errors
+  bookmark.save(function(err) {
+    if (err)
+      res.send(err);
+
+    res.json({
+      message: 'Bookmark created!'
+    });
+  });
+
+})
+
+// get all the users (accessed at GET http://localhost:8080/api/bookmarks)
+.get(function(req, res) {
+  Bookmark.find(function(err, bookmarks) {
+    if (err)
+      res.send(err);
+
+    res.json(bookmarks);
+  });
+});
+
+
 // more routes for our API will happen here
 
 // REGISTER OUR ROUTES -------------------------------
