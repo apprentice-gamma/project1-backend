@@ -40,47 +40,8 @@ router.get('/', function(req, res) {
   });
 });
 
-// routes that end in /users
-//---------------------------------------------------
 
 
-// on routes that end in /users/:user_id
-// ----------------------------------------------------
-router.route('/users/:user_id')
-
-// get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
-.get(function(req, res) {
-  User.findById(req.params.user_id, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
-  });
-})
-
-// update the user with this id (accessed at PUT http://localhost:8080/api/users/:user_id)
-.put(function(req, res) {
-  // use our user model to find the user we want
-  User.findById(req.params.user_id, function(err, user) {
-
-    if (err)
-      res.send(err);
-
-    user.firstname = req.body.firstname; // update the users info
-    user.lastname = req.body.lastname;
-    user.email = req.body.email;
-
-    // save the user
-    user.save(function(err) {
-      if (err)
-        res.send(err);
-
-      res.json({
-        message: 'User updated!'
-      });
-    });
-
-  });
-})
 
 // SHOUTOUTS
 router.route('/users')
@@ -113,6 +74,41 @@ router.route('/users')
   });
 });
 
+// on routes that end in /users/:user_id
+// ----------------------------------------------------
+router.route('/users/:user_id')
+
+// get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
+.get(function(req, res) {
+  User.findById(req.params.user_id, function(err, user) {
+    if (err)
+      res.send(err);
+    res.json(user);
+  });
+})
+
+// update the user with this id (accessed at PUT http://localhost:8080/api/users/:user_id)
+.put(function(req, res) {
+  // use our user model to find the user we want
+  User.findById(req.params.user_id, function(err, user) {
+
+    if (err)
+      res.send(err);
+
+    user.name = req.body.name; // update the users info
+
+    // save the user
+    user.save(function(err) {
+      if (err)
+        res.send(err);
+
+      res.json({
+        message: 'User updated!'
+      });
+    });
+
+  });
+})
 // END SHOUTOUTS
 
 
