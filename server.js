@@ -124,36 +124,36 @@ router.route('/users/:user_id')
 //     });
 // });
 
-router.route('/users/:user_id/bookmarks')
-  .post(function(req, res) {
+// router.route('/users/:user_id/bookmarks')
+//   .post(function(req, res) {
 
-    User.findById(req.params.user_id, function(err, user) {
+//     User.findById(req.params.user_id, function(err, user) {
 
-      var bookmark = new Bookmark();
-      bookmark.url = req.body.url;
-      bookmark.description = req.body.description;
-      bookmark.title = req.body.title;
-      user.bookmarks.push(bookmark);
+//       var bookmark = new Bookmark();
+//       bookmark.url = req.body.url;
+//       bookmark.description = req.body.description;
+//       bookmark.title = req.body.title;
+//       user.bookmarks.push(bookmark);
 
-      user.save(function(err) {
-        if (err)
-          res.send(err);
+//       user.save(function(err) {
+//         if (err)
+//           res.send(err);
 
-        res.json({
-          message: 'Bookmark created!'
-        });
-      });
+//         res.json({
+//           message: 'Bookmark created!'
+//         });
+//       });
 
-    });
-  })
+//     });
+//   })
 
-.get(function(req, res) {
-  User.findById(req.params.user_id, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user.bookmarks);
-  });
-});
+// .get(function(req, res) {
+//   User.findById(req.params.user_id, function(err, user) {
+//     if (err)
+//       res.send(err);
+//     res.json(user.bookmarks);
+//   });
+// });
 
 // SHOUTOUTS
 
@@ -170,6 +170,7 @@ router.route('/bookmarks')
   var bookmark = new Bookmark();
   bookmark.url = req.body.url;
   bookmark.title = req.body.title;
+  bookmark.user = req.body.user;
   bookmark.description = req.body.description;
 
   bookmark.save(function(err) {
