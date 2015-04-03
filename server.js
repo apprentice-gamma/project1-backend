@@ -87,28 +87,52 @@ router.route('/users/:user_id')
   });
 })
 
+
 // update the user with this id (accessed at PUT http://localhost:8080/api/users/:user_id)
-.put(function(req, res) {
-  // use our user model to find the user we want
-  User.findById(req.params.user_id, function(err, user) {
+// .put(function(req, res) {
+//   // use our user model to find the user we want
+//   User.findById(req.params.user_id, function(err, user) {
 
-    if (err)
-      res.send(err);
+//     if (err)
+//       res.send(err);
 
-    user.name = req.body.name; // update the users info
+//     user.name = req.body.name; // update the users info
 
-    // save the user
-    user.save(function(err) {
-      if (err)
-        res.send(err);
+//     // save the user
+//     user.save(function(err) {
+//       if (err)
+//         res.send(err);
 
-      res.json({
-        message: 'User updated!'
+//       res.json({
+//         message: 'User updated!'
+//       });
+//     });
+
+//   });
+// })
+
+router.route('/users/:user_id/shoutout')
+
+// get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
+.post(function(req, res) {
+
+    User.findById(req.params.user_id, function(err, user) {
+
+      var shoutout = new Shoutout();
+      shoutout.text = req.body.text;
+      user.shoutouts.push(shoutout);
+
+      user.save(function(err) {
+        if (err)
+          res.send(err);
+
+        res.json({
+          message: 'Shoutout created!'
+        });
       });
-    });
 
-  });
-})
+    });
+  })
 // END SHOUTOUTS
 
 
