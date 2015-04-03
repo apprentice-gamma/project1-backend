@@ -155,6 +155,12 @@ router.route('/users/:user_id/bookmarks')
   });
 });
 
+// SHOUTOUTS
+
+
+// END SHOUTOUTS
+
+
 
 // BOOKMARKS --------------------------
 router.route('/bookmarks')
@@ -219,6 +225,8 @@ router.route('/bookmarks/:bookmark_id')
 
   });
 })
+
+// END BOOKMARKS
 
 // more routes for our API will happen here
 
