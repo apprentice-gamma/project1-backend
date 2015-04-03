@@ -227,6 +227,26 @@ router.route('/bookmarks/:bookmark_id')
   });
 })
 
+router.route('/bookmarks/:bookmark_id/comments')
+  .post(function(req, res) {
+
+    Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
+
+      bookmark.comments.push(req.body.commentText);
+
+      bookmark.save(function(err) {
+        if (err)
+          res.send(err);
+
+        res.json({
+          message: 'Comment created!'
+        });
+      });
+
+    });
+  })
+
+
 // END BOOKMARKS
 
 // more routes for our API will happen here
