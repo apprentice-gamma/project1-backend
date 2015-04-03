@@ -9,8 +9,10 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI);
 
 var User = require('./app/models/user.js');
-var Bookmark = require('./app/models/bookmark.js');
+// var Bookmark = require('./app/models/bookmark.js');
 var Shoutout = require('./app/models/shoutout.js');
+
+var bookmarks = require('./routes/bookmarks');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -18,6 +20,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
+
+
+
+
 
 var port = process.env.PORT || 8080; // set our port
 
@@ -124,107 +130,46 @@ router.route('/users/:user_id')
 //     });
 // });
 
-router.route('/users/:user_id/bookmarks')
-  .post(function(req, res) {
+// router.route('/users/:user_id/bookmarks')
+//   .post(function(req, res) {
 
-    User.findById(req.params.user_id, function(err, user) {
+//     User.findById(req.params.user_id, function(err, user) {
 
-      var bookmark = new Bookmark();
-      bookmark.url = req.body.url;
-      bookmark.description = req.body.description;
-      bookmark.title = req.body.title;
-      user.bookmarks.push(bookmark);
+//       var bookmark = new Bookmark();
+//       bookmark.url = req.body.url;
+//       bookmark.description = req.body.description;
+//       bookmark.title = req.body.title;
+//       user.bookmarks.push(bookmark);
 
-      user.save(function(err) {
-        if (err)
-          res.send(err);
+//       user.save(function(err) {
+//         if (err)
+//           res.send(err);
 
-        res.json({
-          message: 'Bookmark created!'
-        });
-      });
+//         res.json({
+//           message: 'Bookmark created!'
+//         });
+//       });
 
-    });
-  })
+//     });
+//   })
 
-.get(function(req, res) {
-  User.findById(req.params.user_id, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user.bookmarks);
-  });
-});
-
-
-// BOOKMARKS --------------------------
-router.route('/bookmarks')
-
-.post(function(req, res) {
-
-  var bookmark = new Bookmark();
-  bookmark.url = req.body.url;
-  bookmark.title = req.body.title;
-  bookmark.description = req.body.description;
-
-  bookmark.save(function(err) {
-    if (err)
-      res.send(err);
-
-    res.json({
-      message: 'Bookmark created!'
-    });
-  });
-
-})
-
-.get(function(req, res) {
-  Bookmark.find(function(err, bookmarks) {
-    if (err)
-      res.send(err);
-
-    res.json(bookmarks);
-  });
-});
-
-router.route('/bookmarks/:bookmark_id')
-.get(function(req, res) {
-  Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
-    if (err)
-      res.send(err);
-    res.json(bookmark);
-  });
-})
+// .get(function(req, res) {
+//   User.findById(req.params.user_id, function(err, user) {
+//     if (err)
+//       res.send(err);
+//     res.json(user.bookmarks);
+//   });
+// });
 
 
-.put(function(req, res) {
 
-  Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
-
-    if (err)
-      res.send(err);
-
-    bookmark.url = req.body.url;
-    bookmark.title = req.body.title;
-    bookmark.description = req.body.description;
-
-
-    bookmark.save(function(err) {
-      if (err)
-        res.send(err);
-
-      res.json({
-        message: 'Bookmark updated!'
-      });
-    });
-
-  });
-})
 
 // more routes for our API will happen here
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+app.use('/bookmarks', bookmarks);
 
 // START THE SERVER
 // =============================================================================
