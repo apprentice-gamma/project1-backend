@@ -6,7 +6,7 @@ var express = require('express'); // call express
 var app = express(); // define our app using express
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/project1-backend');
 
 var User = require('./app/models/user.js');
 var Bookmark = require('./app/models/bookmark.js');
