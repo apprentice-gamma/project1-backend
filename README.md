@@ -2,6 +2,12 @@
 
 This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.
 
+####.gitignore & Node dependencies
+
+The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type `$ npm install`. Keeping them out of the repo is one more way to avoid merge confilicts. 
+
+The .gitignore file
+
 ### Test on a local database instead of having to push to heroku all the time.
 
 Make sure you have mongodb server running by typing `$ mongod` while in the project1-backend directory.
