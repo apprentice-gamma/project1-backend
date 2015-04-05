@@ -1,18 +1,30 @@
 #Project One Backend
 
-###This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.
+This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.
 
-####Heroku
+### Test on a local database instead of having to push to heroku all the time.
 
-We've set up a Herku instance at https://project1-backend.herokuapp.com/api. 
+Make sure you have mongodb server running by typing `$ mongod` while in the project1-backend directory.
 
-####Dependencies
+Then open up a new tab and type `$ mongo`
 
-We are using MongoDB, Express and Body-Parser
+Inside the mongo CLI, type `$ use project1-backend` to create a new database named project1-backend.
 
-####Connecting
+In a new tab, type `$ node server.js`
 
-Database is MongDB hosted on MongoLab via Heroku. It's ID is `heroku_app35449457`
+In postman, use http://localhost:8080/api/bookmarks and http://localhost:8080/api/users, instead of the heroku url.
+
+In order to test if everything is working, create a new user or bookmark, then go to the mongo cli running in your terminal and type 'db.users.find()' or 'db.bookmarks.find()'. If the new document you created with postman shows up everything is set up correctly.
+
+You can also do the regular old get request for all users or bookmarks to see if everything is working properly instead of using the command line.
+
+Morgan is being used for logging.
+
+###Database hosted on Heroku
+
+We've set up a Herku instance at https://project1-backend.herokuapp.com/api.
+
+Database is MongDB hosted on Heroku via MongoLab. It's ID is `heroku_app35449457`
 
 Connecting to MongoLabs: http://docs.mongolab.com/connecting/
 
