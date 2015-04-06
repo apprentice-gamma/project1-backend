@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/project1-backend');
 
 // Brings in the routes
-// var api = require('./app/routes/api');
 var bookmarks = require('./app/routes/bookmarks');
 var users = require('./app/routes/users');
 // configure app to use bodyParser()
