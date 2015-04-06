@@ -18,6 +18,12 @@ app.use(bodyParser.json());
 // Use morgan for logging 'dev', 'combined', 'common'
 app.use(morgan('dev'));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var port = process.env.PORT || 8080; // set our port
 
 // REGISTER OUR ROUTES -------------------------------
