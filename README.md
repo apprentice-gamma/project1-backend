@@ -46,3 +46,8 @@ i.e
 
 mongo ds059821.mongolab.com:59821/heroku_app35449457 -u heroku_app35449457 -p ovvi9mjr2p5a22tl6645eifhri
 
+#Gotchas
+
+Make sure that you are running BOTH the 'mongod' database server `$ mongod` AND the node server 'server.js' `$ node server.js`.
+
+
