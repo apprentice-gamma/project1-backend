@@ -26,7 +26,7 @@ You can also do the regular old get request for all users or bookmarks to see if
 
 Morgan is being used for logging.
 
-###Database hosted on Heroku
+###Database hosted on Heroku with MongoLabs
 
 We've set up a Herku instance at https://project1-backend.herokuapp.com/api.
 
