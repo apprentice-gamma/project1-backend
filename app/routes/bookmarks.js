@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Bookmark = require('../models/bookmark.js');
+var Comment  = require('../models/comment.js');
 
 router.route('/bookmarks')
   .post(function(req, res) {
@@ -68,7 +69,10 @@ router.route('/bookmarks/:bookmark_id/comments')
 
     Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
 
-      bookmark.comments.push(req.body.commentText);
+      comment = new Comment();
+      comment.text = req.body.text;
+      console.log(comment);
+      bookmark.comments.push(comment);
 
       bookmark.save(function(err) {
         if (err)
