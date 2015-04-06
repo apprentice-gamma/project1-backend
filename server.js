@@ -6,8 +6,9 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/project1-backend');
 
 // Brings in the routes
-var api = require('./app/routes/api');
-
+// var api = require('./app/routes/api');
+var bookmarks = require('./app/routes/bookmarks');
+var users = require('./app/routes/users');
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({
@@ -22,7 +23,8 @@ var port = process.env.PORT || 8080; // set our port
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', api);
+app.use('/api', users);
+app.use('/api', bookmarks);
 
 // START THE SERVER
 // =============================================================================
