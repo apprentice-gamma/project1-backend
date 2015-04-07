@@ -10,19 +10,19 @@ The .gitignore file
 
 ### Test on a local database instead of having to push to heroku all the time.
 
-Make sure you have mongodb server running by typing `$ mongod` while in the project1-backend directory.
+This assumes that you have already installed MongoDB as descripbed in the MongoDB docs.
 
-Then open up a new tab and type `$ mongo`
+Make sure you have mongodb server running by typing `$ mongod`
 
-Inside the mongo CLI, type `$ use project1-backend` to create a new database named project1-backend.
+Open up a new tab and type `$ mongo` to get the MongoDB CLI running. Inside the mongo CLI, type `$ use project1-backend` to create a new database named project1-backend.
 
 In a new tab, type `$ node server.js`
 
-In postman, use http://localhost:8080/api/bookmarks and http://localhost:8080/api/users, instead of the heroku url.
+In postman, use http://localhost:8080/api/bookmarks and http://localhost:8080/api/users instead of the heroku url. This allows you to test locally without having to push to Heroku and wait for it to build every time you make a change.
 
-In order to test if everything is working, create a new user or bookmark, then go to the mongo cli running in your terminal and type 'db.users.find()' or 'db.bookmarks.find()'. If the new document you created with postman shows up everything is set up correctly.
+In order to test if everything is working, create a new user or bookmark, then go to the Mongo CLI (which is running in your terminal because you already typed `$ mongo` in a previous tab) and type 'db.users.find()' or 'db.bookmarks.find()'. If the new document you created with postman shows up everything is set up correctly.
 
-You can also do the regular old get request for all users or bookmarks to see if everything is working properly instead of using the command line.
+You can also do the regular old GET request for all users or bookmarks to see if everything is working properly instead of using the Mongo CLI.
 
 Morgan is being used for logging.
 
