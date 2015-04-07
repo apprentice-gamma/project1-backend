@@ -43,6 +43,7 @@ router.route('/users/:user_id')
       res.json(user);
     });
   })
+  
   .delete(function(req, res){
         User.remove({
             _id: req.params.user_id
@@ -74,4 +75,20 @@ router.route('/users/:user_id/shoutouts')
       });
     })
 
+router.route('/users/:user_id/shoutouts/:shoutout_id')
+
+  .delete(function(req, res){
+    
+    User.findById(req.params.user_id, function(err, user) {
+      user.shoutouts.pull(req.params.shoutout_id);
+      user.save(function(err) {
+          if (err)
+            res.send(err);
+
+          res.json({
+            message: 'Successfully deleted shoutout.'
+          });
+        });
+    });
+ });
 module.exports = router;
