@@ -63,6 +63,16 @@ router.route('/bookmarks/:bookmark_id')
 
     });
   })
+  
+  .delete(function(req, res){
+        Bookmark.remove({
+            _id: req.params.bookmark_id
+        }, function(err, bookmark){
+            if(err)
+                res.send(err)
+            res.json({message: 'Successfully deleted bookmark.'})
+        });
+    });
 
 router.route('/bookmarks/:bookmark_id/comments')
   .post(function(req, res) {
