@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>backender by apprentice-gamma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">backender</h1>
+      <h2 class="project-tagline">This is the backend for the first Gamma team small project.</h2>
+      <a href="https://github.com/apprentice-gamma/project1-backend" class="btn">View on GitHub</a>
+      <a href="https://github.com/apprentice-gamma/project1-backend/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/apprentice-gamma/project1-backend/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="project-one-backend" class="anchor" href="#project-one-backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project One Backend</h1>
+
+<p>This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.</p>
+
+<h2>
+<a id="npm--dependencies" class="anchor" href="#npm--dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM &amp; Dependencies</h2>
+
+<p>The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type <code>$ npm install</code>. </p>
+
+<h2>
+<a id="setting-up-your-local-mongodb" class="anchor" href="#setting-up-your-local-mongodb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up your local MongoDB</h2>
+
+<p>Here is a tutorial on <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">how to install MongoDB</a> and then how to <a href="http://docs.mongodb.org/manual/tutorial/getting-started/">set up mongoDB locally</a> and finally how to <a href="http://docs.mongodb.org/manual/tutorial/getting-started/#getting-started-create-documents">create documents</a> which basically means "putting stuff in your batabase so you can see it."</p>
+
+<h4>
+<a id="try-this-quickstart-first" class="anchor" href="#try-this-quickstart-first" aria-hidden="true"><span class="octicon octicon-link"></span></a>Try this quickstart first...</h4>
+
+<p>MongoDB Quick Install/Setup Guide - Assumes you have Homebrew installed.</p>
+
+<p><code>$ brew update</code> to make sure it's aware of the latest version of Mongo</p>
+
+<p><code>$ brew install MongoDB</code> to install MongoDB</p>
+
+<p>Now set up the place where all of the databases live. By default for Mongo it's /data/db. So type</p>
+
+<p><code>$ mkdir -p /data/db</code> </p>
+
+<p>Make sure that the directory you just created has full read/write privilages. </p>
+
+<p>Now start MongoDB up: </p>
+
+<p><code>$ mongod</code></p>
+
+<p>You should see an instance of the MongoDB terminal interface running, and you can manipulate the databases from here.</p>
+
+<p>Now create your database for this project. Type</p>
+
+<p>`$ use project1-backend' in the MongoDB terminal interface and it will create a database named gammadb for you. Naming it project1-backend will ensure that the code in this repo will point to a local db that you can use to develop locally.</p>
+
+<h2>
+<a id="postman-for-talking-to-the-apidatabase" class="anchor" href="#postman-for-talking-to-the-apidatabase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Postman for talking to the API/database</h2>
+
+<p>Although you can talk to your db through the mongo CLI, but (Postman)[<a href="https://www.getpostman.com/">https://www.getpostman.com/</a>] is freaking awesomer at it. </p>
+
+<h2>
+<a id="the-gitignore-file" class="anchor" href="#the-gitignore-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>The .gitignore file</h2>
+
+<p>The node_modules folder is not included in the repo, however the package.json file will fetch all of your dependencies for you if you type <code>$ npm install</code>. Keeping them out of the repo is one more way to avoid merge and/or version confilicts.</p>
+
+<h2>
+<a id="testing-on-a-local-database-instead-of-having-to-push-to-heroku-all-the-time" class="anchor" href="#testing-on-a-local-database-instead-of-having-to-push-to-heroku-all-the-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing on a local database (instead of having to push to Heroku all the time).</h2>
+
+<p>This assumes that you have already installed MongoDB as described above, or in in the MongoDB docs.</p>
+
+<p>Make sure you have mongodb server running by typing <code>$ mongod</code></p>
+
+<p>Open up a new tab and type <code>$ mongo</code> to get the MongoDB CLI running. Inside the mongo CLI, type <code>$ use project1-backend</code> to make sure you're on project1-backend.</p>
+
+<p>In a new tab, type <code>$ node server.js</code></p>
+
+<p>In Postman, use http://localhost:8080/api/bookmarks and http://localhost:8080/api/users instead of the heroku url. This allows you to test locally without having to push to Heroku and wait for it to build every time you make a change.</p>
+
+<p>In order to test if everything is working, create a new user or bookmark and then go to the Mongo CLI (which is running in your terminal because you already typed <code>$ mongo</code> in a previous tab) and type 'db.users.find()' or 'db.bookmarks.find()'. If the new document you created with Postman shows up, then everything is set up correctly.</p>
+
+<p>You can also do the regular old GET request in Postman for all users or bookmarks to see if everything is working properly instead of using the Mongo CLI.</p>
+
+<h2>
+<a id="database-hosted-on-heroku-with-mongolabs" class="anchor" href="#database-hosted-on-heroku-with-mongolabs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database hosted on Heroku with MongoLabs</h2>
+
+<p>We've set up a Heroku instance. The project1-backend MongDB database is  hosted on Heroku via (MongoLab)[<a href="https://mongolab.com/">https://mongolab.com/</a>]. (Docs about connecting to MongoLab are here)[<a href="http://docs.mongolab.com/connecting">http://docs.mongolab.com/connecting</a>].
+    URL: <a href="https://project1-backend.herokuapp.com/api">https://project1-backend.herokuapp.com/api</a>.
+    user/appID/account: heroku_app35449457
+    pwd: ovvi9mjr2p5a22tl6645eifhri</p>
+
+<p>To connect with the terminal using the mongo CLI:
+<code>mongo ds059821.mongolab.com:59821/heroku_app35449457 -u &lt;dbuser&gt; -p &lt;dbpassword&gt;</code></p>
+
+<p>i.e
+mongo ds059821.mongolab.com:59821/heroku_app35449457 -u heroku_app35449457 -p ovvi9mjr2p5a22tl6645eifhri</p>
+
+<h1>
+<a id="gotchas" class="anchor" href="#gotchas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gotchas</h1>
+
+<p>Make sure that you are running BOTH the 'mongod' database server <code>$ mongod</code> AND the node server 'server.js' <code>$ node server.js</code>. One powers the database, the other serves to your localhost.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/apprentice-gamma/project1-backend">backender</a> is maintained by <a href="https://github.com/apprentice-gamma">apprentice-gamma</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
