@@ -43,6 +43,15 @@ router.route('/users/:user_id')
       res.json(user);
     });
   })
+  .delete(function(req, res){
+        User.remove({
+            _id: req.params.user_id
+        }, function(err, user){
+            if(err)
+                res.send(err)
+            res.json({message: 'Successfully deleted user.'})
+        });
+    });
 
 router.route('/users/:user_id/shoutouts')
   // get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
