@@ -17,7 +17,7 @@ router.route('/bookmarks')
 
     bookmark.save(function(err) {
       if (err)
-        res.send(err);
+          res.status(400).send(err);
 
       res.json({
         message: 'Bookmark created!'
@@ -28,7 +28,7 @@ router.route('/bookmarks')
   .get(function(req, res) {
     Bookmark.find(function(err, bookmarks) {
       if (err)
-        res.send(err);
+        res.status(400).send(err);
 
       res.json(bookmarks);
     });
@@ -41,7 +41,7 @@ router.route('/bookmarks/:bookmark_id')
   .get(function(req, res) {
     Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
       if (err)
-        res.send(err);
+        res.status(400).send(err);
       res.json(bookmark);
     });
   })
@@ -49,7 +49,7 @@ router.route('/bookmarks/:bookmark_id')
   .put(function(req, res) {
     Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
       if (err)
-        res.send(err);
+        res.status(400).send(err);
 
       bookmark.url = req.body.url;
       bookmark.title = req.body.title;
@@ -57,7 +57,7 @@ router.route('/bookmarks/:bookmark_id')
 
       bookmark.save(function(err) {
         if (err)
-          res.send(err);
+          res.status(400).send(err);
 
         res.json({
           message: 'Bookmark updated!'
@@ -69,7 +69,7 @@ router.route('/bookmarks/:bookmark_id')
   .delete(function(req, res){
     Bookmark.remove({_id: req.params.bookmark_id}, function(err, bookmark){
       if(err)
-          res.send(err);
+         res.status(400).send(err);
 
       res.json({message: 'Successfully deleted bookmark.'});
     });
@@ -88,7 +88,7 @@ router.route('/bookmarks/:bookmark_id/comments')
 
       bookmark.save(function(err) {
         if (err)
-          res.send(err);
+          res.status(400).send(err);
 
         res.json({
           message: 'Comment created!'
