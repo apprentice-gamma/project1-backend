@@ -8,6 +8,6 @@ var ShoutoutSchema = new Schema({
   time: { type: Date, default: Date.now }
 });
 
-BookmarkSchema.plugin(uniqueValidator);
+ShoutoutSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Shoutout', ShoutoutSchema);

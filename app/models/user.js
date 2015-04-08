@@ -10,6 +10,6 @@ var UserSchema   = new Schema({
   shoutouts: [Shoutout.schema]
 });
 
-BookmarkSchema.plugin(uniqueValidator);
+UserSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('User', UserSchema);

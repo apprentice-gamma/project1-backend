@@ -8,6 +8,6 @@ var CommentSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-BookmarkSchema.plugin(uniqueValidator);
+CommentSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Comment', CommentSchema);
