@@ -4,6 +4,7 @@ var Shoutout     = require('./shoutout.js');
 
 var UserSchema   = new Schema({
   name: String,
+  google_id: String,
   shoutouts: [Shoutout.schema]
 });
 
