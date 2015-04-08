@@ -4,8 +4,10 @@ var router = express.Router();
 var User     = require('../models/user.js');
 var Shoutout = require('../models/shoutout.js');
 
+// ------------------------------------------------------
+// /users (GET, POST)
+// ------------------------------------------------------
 router.route('/users')
-  // create a user (accessed at POST http://localhost:8080/api/users)
   .post(function(req, res) {
     var user = new User(); // create a new instance of the User model
     user.name = req.body.name; // set the users first name (comes from the request)
@@ -21,7 +23,6 @@ router.route('/users')
     });
   })
 
-  // get all the users (accessed at GET http://localhost:8080/api/users)
   .get(function(req, res) {
     User.find(function(err, users) {
       if (err)
@@ -31,8 +32,9 @@ router.route('/users')
     });
   });
 
-// on routes that end in /users/:user_id
-// ----------------------------------------------------
+// ------------------------------------------------------
+// /users/:user_id (GET, DELETE)
+// ------------------------------------------------------
 router.route('/users/:user_id')
   // get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
   .get(function(req, res) {
@@ -53,6 +55,9 @@ router.route('/users/:user_id')
     });
   });
 
+// ------------------------------------------------------
+// /users/:user_id/shoutouts (POST)
+// ------------------------------------------------------
 router.route('/users/:user_id/shoutouts')
   // get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
   .post(function(req, res) {
@@ -72,6 +77,9 @@ router.route('/users/:user_id/shoutouts')
     });
   });
 
+// ------------------------------------------------------
+// /users/:user_id/shoutouts/:shoutout_id (DELETE)
+// ------------------------------------------------------
 router.route('/users/:user_id/shoutouts/:shoutout_id')
 
   .delete(function(req, res){

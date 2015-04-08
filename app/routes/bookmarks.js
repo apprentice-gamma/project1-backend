@@ -4,9 +4,11 @@ var router = express.Router();
 var Bookmark = require('../models/bookmark.js');
 var Comment  = require('../models/comment.js');
 
+// ------------------------------------------------------
+// /bookmarks (GET, POST)
+// ------------------------------------------------------
 router.route('/bookmarks')
   .post(function(req, res) {
-
     var bookmark = new Bookmark();
     bookmark.url = req.body.url;
     bookmark.title = req.body.title;
@@ -21,7 +23,6 @@ router.route('/bookmarks')
         message: 'Bookmark created!'
       });
     });
-
   })
 
   .get(function(req, res) {
@@ -33,6 +34,9 @@ router.route('/bookmarks')
     });
   });
 
+// ------------------------------------------------------
+// /bookmarks/:bookmark_id (GET, PUT, DELETE)
+// ------------------------------------------------------
 router.route('/bookmarks/:bookmark_id')
   .get(function(req, res) {
     Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
@@ -44,7 +48,6 @@ router.route('/bookmarks/:bookmark_id')
 
   .put(function(req, res) {
     Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
-
       if (err)
         res.send(err);
 
@@ -60,25 +63,24 @@ router.route('/bookmarks/:bookmark_id')
           message: 'Bookmark updated!'
         });
       });
-
     });
   })
-  
-  .delete(function(req, res){
-        Bookmark.remove({
-            _id: req.params.bookmark_id
-        }, function(err, bookmark){
-            if(err)
-                res.send(err)
-            res.json({message: 'Successfully deleted bookmark.'})
-        });
-    });
 
+  .delete(function(req, res){
+    Bookmark.remove({_id: req.params.bookmark_id}, function(err, bookmark){
+      if(err)
+          res.send(err);
+
+      res.json({message: 'Successfully deleted bookmark.'});
+    });
+  });
+
+// ------------------------------------------------------
+// /bookmarks/:bookmark_id/comments (POST)
+// ------------------------------------------------------
 router.route('/bookmarks/:bookmark_id/comments')
   .post(function(req, res) {
-
     Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
-
       comment = new Comment();
       comment.text = req.body.text;
       console.log(comment);
@@ -92,8 +94,7 @@ router.route('/bookmarks/:bookmark_id/comments')
           message: 'Comment created!'
         });
       });
-
     });
-  })
+  });
 
 module.exports = router;
