@@ -11,7 +11,7 @@ router.route('/users')
   .post(function(req, res) {
     var user = new User(); // create a new instance of the User model
     user.name = req.body.name; // set the users first name (comes from the request)
-
+    user.google_id = req.body.google_id;
     // save the user and check for errors
     user.save(function(err) {
       if (err)
