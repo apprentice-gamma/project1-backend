@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 var uniqueValidator = require('mongoose-unique-validator');
 
 var CommentSchema = new Schema({
-
+  
+  user: { type: String, required: true },	
   text: { type: String, required: true },
   date: { type: Date, default: Date.now }
 });
