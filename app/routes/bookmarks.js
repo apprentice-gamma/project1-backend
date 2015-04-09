@@ -83,7 +83,7 @@ router.route('/bookmarks/:bookmark_id/comments')
     Bookmark.findById(req.params.bookmark_id, function(err, bookmark) {
       comment = new Comment();
       comment.text = req.body.text;
-      comment.user = req.body.user,
+      comment.user = req.body.user;
       bookmark.comments.push(comment);
 
       bookmark.save(function(err) {
