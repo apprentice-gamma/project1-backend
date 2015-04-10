@@ -5,19 +5,19 @@ This is the repo for the backend code that will support the Linked Learning and 
 https://project1-backend.herokuapp.com/api
 
 ##Endpoints
-GET /users #=> Get all users  
-POST /users #=> Create a user  
-GET /users/:user_id #=> Get single user  
-DELETE /users/:user_id #=> Delete single user  
-POST /users/:user_id/shoutouts #=> add shoutout to a user  
-DELETE /users/:user_id/shoutouts/:shoutout_id #=> Delete a shoutout
+GET 	/users #=> Get all users  
+POST 	/users #=> Create a user  
+GET 	/users/:user_id #=> Get single user  
+DELETE 	/users/:user_id #=> Delete single user  
+POST 	/users/:user_id/shoutouts #=> add shoutout to a user  
+DELETE 	/users/:user_id/shoutouts/:shoutout_id #=> Delete a shoutout
 
-GET /bookmarks #=> Get all bookmarks  
-POST /bookmarks #=> Create a bookmark  
-GET /bookmarks/:bookmark_id #=> Get single bookmark  
-PUT /bookmarks/:bookmark_id #=> Update a bookmark  
-DELETE /bookmarks/:bookmark_id #=> Delete a bookmark  
-POST /bookmarks/:bookmark_id/comments #=> Add comment to a bookmark  
+GET 	/bookmarks #=> Get all bookmarks  
+POST 	/bookmarks #=> Create a bookmark  
+GET 	/bookmarks/:bookmark_id #=> Get single bookmark  
+PUT 	/bookmarks/:bookmark_id #=> Update a bookmark  
+DELETE 	/bookmarks/:bookmark_id #=> Delete a bookmark  
+POST 	/bookmarks/:bookmark_id/comments #=> Add comment to a bookmark  
 
 ##NPM & Dependencies
 The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type `$ npm install`.
