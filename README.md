@@ -2,13 +2,19 @@
 
 This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.
 
+##Endpoints
+GET https://project1-backend.herokuapp.com/api/users #=> Get all users
+POST https://project1-backend.herokuapp.com/api/users #=> Create a user
+GET https://project1-backend.herokuapp.com/api/users/:user_id #=> Get single user
+POST https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts #=> add shoutout to a user
+
 ##NPM & Dependencies
-The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type `$ npm install`. 
+The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type `$ npm install`.
 
 ##Setting up your local MongoDB
 Here is a tutorial on [how to install MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/) and then how to [set up mongoDB locally](http://docs.mongodb.org/manual/tutorial/getting-started/) and finally how to [create documents](http://docs.mongodb.org/manual/tutorial/getting-started/#getting-started-create-documents) which basically means "putting stuff in your batabase so you can see it."
 
-####Try this quickstart first... 
+####Try this quickstart first...
 
 MongoDB Quick Install/Setup Guide - Assumes you have Homebrew installed.
 
@@ -18,11 +24,11 @@ MongoDB Quick Install/Setup Guide - Assumes you have Homebrew installed.
 
 Now set up the place where all of the databases live. By default for Mongo it's /data/db. So type
 
-`$ mkdir -p /data/db` 
+`$ mkdir -p /data/db`
 
-Make sure that the directory you just created has full read/write privilages. 
+Make sure that the directory you just created has full read/write privilages.
 
-Now start MongoDB up: 
+Now start MongoDB up:
 
 `$ mongod`
 
@@ -34,9 +40,9 @@ Now create your database for this project. Type
 
 ##Postman for talking to the API/database
 
-Although you can talk to your db through the mongo CLI, but (Postman)[https://www.getpostman.com/] is freaking awesomer at it. 
+Although you can talk to your db through the mongo CLI, but (Postman)[https://www.getpostman.com/] is freaking awesomer at it.
 
-##The .gitignore file 
+##The .gitignore file
 
 The node_modules folder is not included in the repo, however the package.json file will fetch all of your dependencies for you if you type `$ npm install`. Keeping them out of the repo is one more way to avoid merge and/or version confilicts.
 
