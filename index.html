@@ -22,7 +22,7 @@
       <h1>
 <a id="project-one-backend" class="anchor" href="#project-one-backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project One Backend</h1>
 
-<p>This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.</p>
+<p>This is the repo for the backend code that will support the Linked Learning and Mewer apps by the Gammas.</p>
 
 <h2>
 <a id="endpoints" class="anchor" href="#endpoints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Endpoints</h2>
@@ -30,7 +30,16 @@
 <p>GET <a href="https://project1-backend.herokuapp.com/api/users">https://project1-backend.herokuapp.com/api/users</a> #=&gt; Get all users<br>
 POST <a href="https://project1-backend.herokuapp.com/api/users">https://project1-backend.herokuapp.com/api/users</a> #=&gt; Create a user<br>
 GET <a href="https://project1-backend.herokuapp.com/api/users/:user_id">https://project1-backend.herokuapp.com/api/users/:user_id</a> #=&gt; Get single user<br>
-POST <a href="https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts">https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts</a> #=&gt; add  shoutout to a user  </p>
+DELETE <a href="https://project1-backend.herokuapp.com/api/users/:user_id">https://project1-backend.herokuapp.com/api/users/:user_id</a> #=&gt; Delete single user<br>
+POST <a href="https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts">https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts</a> #=&gt; add shoutout to a user<br>
+DELETE <a href="https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts/:shoutout_id">https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts/:shoutout_id</a> #=&gt; Delete a shoutout</p>
+
+<p>GET <a href="https://project1-backend.herokuapp.com/api/bookmarks">https://project1-backend.herokuapp.com/api/bookmarks</a> #=&gt; Get all bookmarks<br>
+POST <a href="https://project1-backend.herokuapp.com/api/bookmarks">https://project1-backend.herokuapp.com/api/bookmarks</a> #=&gt; Create a bookmark<br>
+GET <a href="https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id">https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id</a> #=&gt; Get single bookmark<br>
+PUT <a href="https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id">https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id</a> #=&gt; Update a bookmark<br>
+DELETE <a href="https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id">https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id</a> #=&gt; Delete a bookmark<br>
+POST <a href="https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id/comments">https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id/comments</a> #=&gt; Add comment to a bookmark  </p>
 
 <h2>
 <a id="npm--dependencies" class="anchor" href="#npm--dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM &amp; Dependencies</h2>
@@ -55,7 +64,7 @@ POST <a href="https://project1-backend.herokuapp.com/api/users/:user_id/shoutout
 
 <p><code>$ mkdir -p /data/db</code></p>
 
-<p>Make sure that the directory you just created has full read/write privilages.</p>
+<p>Make sure that the directory you just created has full read/write privileges.</p>
 
 <p>Now start MongoDB up:</p>
 
@@ -70,7 +79,7 @@ POST <a href="https://project1-backend.herokuapp.com/api/users/:user_id/shoutout
 <h2>
 <a id="postman-for-talking-to-the-apidatabase" class="anchor" href="#postman-for-talking-to-the-apidatabase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Postman for talking to the API/database</h2>
 
-<p>Although you can talk to your db through the mongo CLI, but (Postman)[<a href="https://www.getpostman.com/">https://www.getpostman.com/</a>] is freaking awesomer at it.</p>
+<p>You can talk to your db through the mongo CLI, but (Postman)[<a href="https://www.getpostman.com/">https://www.getpostman.com/</a>] is freaking awesomer at it.</p>
 
 <h2>
 <a id="the-gitignore-file" class="anchor" href="#the-gitignore-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>The .gitignore file</h2>
@@ -80,7 +89,7 @@ POST <a href="https://project1-backend.herokuapp.com/api/users/:user_id/shoutout
 <h2>
 <a id="testing-on-a-local-database-instead-of-having-to-push-to-heroku-all-the-time" class="anchor" href="#testing-on-a-local-database-instead-of-having-to-push-to-heroku-all-the-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing on a local database (instead of having to push to Heroku all the time).</h2>
 
-<p>This assumes that you have already installed MongoDB as described above, or in in the MongoDB docs.</p>
+<p>This assumes that you have already installed MongoDB as described above, or in the MongoDB docs.</p>
 
 <p>Make sure you have mongodb server running by typing <code>$ mongod</code></p>
 
