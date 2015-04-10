@@ -1,6 +1,6 @@
 #Project One Backend
 
-This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.
+This is the repo for the backend code that will support the Linked Learning and Mewer apps by the Gammas.
 
 ##Endpoints
 GET https://project1-backend.herokuapp.com/api/users #=> Get all users
@@ -26,7 +26,7 @@ Now set up the place where all of the databases live. By default for Mongo it's 
 
 `$ mkdir -p /data/db`
 
-Make sure that the directory you just created has full read/write privilages.
+Make sure that the directory you just created has full read/write privileges.
 
 Now start MongoDB up:
 
@@ -40,7 +40,7 @@ Now create your database for this project. Type
 
 ##Postman for talking to the API/database
 
-Although you can talk to your db through the mongo CLI, but (Postman)[https://www.getpostman.com/] is freaking awesomer at it.
+You can talk to your db through the mongo CLI, but (Postman)[https://www.getpostman.com/] is freaking awesomer at it.
 
 ##The .gitignore file
 
@@ -48,7 +48,7 @@ The node_modules folder is not included in the repo, however the package.json fi
 
 ##Testing on a local database (instead of having to push to Heroku all the time).
 
-This assumes that you have already installed MongoDB as described above, or in in the MongoDB docs.
+This assumes that you have already installed MongoDB as described above, or in the MongoDB docs.
 
 Make sure you have mongodb server running by typing `$ mongod`
 
