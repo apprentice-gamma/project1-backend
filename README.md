@@ -1,21 +1,23 @@
 #Project One Backend
 
-This is the repo for the backend code that will support the Linked Learning and Mewer apps by the Gammas.
+This is the repo for the backend code that will support the Linked Learning and Mewer apps by the Gammas. The backend can be accessed at the following url...
+
+https://project1-backend.herokuapp.com/api
 
 ##Endpoints
-GET https://project1-backend.herokuapp.com/api/users #=> Get all users  
-POST https://project1-backend.herokuapp.com/api/users #=> Create a user  
-GET https://project1-backend.herokuapp.com/api/users/:user_id #=> Get single user  
-DELETE https://project1-backend.herokuapp.com/api/users/:user_id #=> Delete single user  
-POST https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts #=> add shoutout to a user  
-DELETE https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts/:shoutout_id #=> Delete a shoutout
+GET /users #=> Get all users  
+POST /users #=> Create a user  
+GET /users/:user_id #=> Get single user  
+DELETE /users/:user_id #=> Delete single user  
+POST /users/:user_id/shoutouts #=> add shoutout to a user  
+DELETE /users/:user_id/shoutouts/:shoutout_id #=> Delete a shoutout
 
-GET https://project1-backend.herokuapp.com/api/bookmarks #=> Get all bookmarks  
-POST https://project1-backend.herokuapp.com/api/bookmarks #=> Create a bookmark  
-GET https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id #=> Get single bookmark  
-PUT https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id #=> Update a bookmark  
-DELETE https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id #=> Delete a bookmark  
-POST https://project1-backend.herokuapp.com/api/bookmarks/:bookmark_id/comments #=> Add comment to a bookmark  
+GET /bookmarks #=> Get all bookmarks  
+POST /bookmarks #=> Create a bookmark  
+GET /bookmarks/:bookmark_id #=> Get single bookmark  
+PUT /bookmarks/:bookmark_id #=> Update a bookmark  
+DELETE /bookmarks/:bookmark_id #=> Delete a bookmark  
+POST /bookmarks/:bookmark_id/comments #=> Add comment to a bookmark  
 
 ##NPM & Dependencies
 The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type `$ npm install`.
