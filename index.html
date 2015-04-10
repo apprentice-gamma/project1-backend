@@ -25,9 +25,17 @@
 <p>This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.</p>
 
 <h2>
+<a id="endpoints" class="anchor" href="#endpoints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Endpoints</h2>
+
+<p>GET <a href="https://project1-backend.herokuapp.com/api/users">https://project1-backend.herokuapp.com/api/users</a> #=&gt; Get all users
+POST <a href="https://project1-backend.herokuapp.com/api/users">https://project1-backend.herokuapp.com/api/users</a> #=&gt; Create a user
+GET <a href="https://project1-backend.herokuapp.com/api/users/:user_id">https://project1-backend.herokuapp.com/api/users/:user_id</a> #=&gt; Get single user
+POST <a href="https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts">https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts</a> #=&gt; add shoutout to a user</p>
+
+<h2>
 <a id="npm--dependencies" class="anchor" href="#npm--dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM &amp; Dependencies</h2>
 
-<p>The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type <code>$ npm install</code>. </p>
+<p>The node_modules folder is not included in the repo, however the package.json file will fetch them for you if you type <code>$ npm install</code>.</p>
 
 <h2>
 <a id="setting-up-your-local-mongodb" class="anchor" href="#setting-up-your-local-mongodb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up your local MongoDB</h2>
@@ -45,11 +53,11 @@
 
 <p>Now set up the place where all of the databases live. By default for Mongo it's /data/db. So type</p>
 
-<p><code>$ mkdir -p /data/db</code> </p>
+<p><code>$ mkdir -p /data/db</code></p>
 
-<p>Make sure that the directory you just created has full read/write privilages. </p>
+<p>Make sure that the directory you just created has full read/write privilages.</p>
 
-<p>Now start MongoDB up: </p>
+<p>Now start MongoDB up:</p>
 
 <p><code>$ mongod</code></p>
 
@@ -62,7 +70,7 @@
 <h2>
 <a id="postman-for-talking-to-the-apidatabase" class="anchor" href="#postman-for-talking-to-the-apidatabase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Postman for talking to the API/database</h2>
 
-<p>Although you can talk to your db through the mongo CLI, but (Postman)[<a href="https://www.getpostman.com/">https://www.getpostman.com/</a>] is freaking awesomer at it. </p>
+<p>Although you can talk to your db through the mongo CLI, but (Postman)[<a href="https://www.getpostman.com/">https://www.getpostman.com/</a>] is freaking awesomer at it.</p>
 
 <h2>
 <a id="the-gitignore-file" class="anchor" href="#the-gitignore-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>The .gitignore file</h2>
