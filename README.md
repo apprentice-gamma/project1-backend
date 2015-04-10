@@ -3,7 +3,7 @@
 This is the repo for the backend code that will support the Linked Learning and Shout Out apps by the Gammas.
 
 ##Endpoints
-GET https://project1-backend.herokuapp.com/api/users #=> Get all users
+GET https://project1-backend.herokuapp.com/api/users => Get all users
 POST https://project1-backend.herokuapp.com/api/users #=> Create a user
 GET https://project1-backend.herokuapp.com/api/users/:user_id #=> Get single user
 POST https://project1-backend.herokuapp.com/api/users/:user_id/shoutouts #=> add shoutout to a user
