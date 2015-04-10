@@ -5,7 +5,7 @@ This is the repo for the backend code that will support the Linked Learning and 
 https://project1-backend.herokuapp.com/api
 
 ##Endpoints  
-###Mewers  
+####Mewers
 GET 	/users #=> Get all users  
 POST 	/users #=> Create a user  
 GET 	/users/:user_id #=> Get single user  
@@ -13,7 +13,7 @@ DELETE 	/users/:user_id #=> Delete single user
 POST 	/users/:user_id/shoutouts #=> add shoutout to a user  
 DELETE 	/users/:user_id/shoutouts/:shoutout_id #=> Delete a shoutout
 
-###Linked Learning  
+####Linked Learning
 GET 	/bookmarks #=> Get all bookmarks  
 POST 	/bookmarks #=> Create a bookmark  
 GET 	/bookmarks/:bookmark_id #=> Get single bookmark  
