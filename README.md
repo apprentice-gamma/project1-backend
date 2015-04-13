@@ -2,7 +2,7 @@
 
 This is the repo for the backend code that will support the Linked Learning and Mewer apps by the Gammas. The backend can be accessed at the following url...
 
-https://project1-backend.herokuapp.com/api(ENDPOINT)
+Append Enpoints listed below to: https://project1-backend.herokuapp.com/api
 
 ##Endpoints  
 ####Mewers
